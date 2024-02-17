@@ -1,4 +1,5 @@
-﻿using Telegram.Bot;
+﻿using System.Configuration;
+using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -25,7 +26,7 @@ namespace StorySculpt.Telegram
         public void Init()
         {
 
-            botClient = new TelegramBotClient("6901438785:AAER8EprhrOr2eqD_Wo-Bqfx_r8keTKWUD0"); // Присваиваем нашей переменной значение, в параметре передаем Token, полученный от BotFather
+            botClient = new TelegramBotClient(ConfigurationManager.AppSettings["tgToken"]); // Присваиваем нашей переменной значение, в параметре передаем Token, полученный от BotFather
             receiverOptions = new ReceiverOptions // Также присваем значение настройкам бота
             {
                 AllowedUpdates = new[] // Тут указываем типы получаемых Update`ов
@@ -59,9 +60,19 @@ namespace StorySculpt.Telegram
 
                             var chat = message.Chat;
 
-                            chats[chat.Id] = new Chat(message, TelegramBot.botClient);
+                            if (message.Text == "/start")
+                            {
+                                chats[chat.Id] = new Chat(message, TelegramBot.botClient);
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    chats[chat.Id].setTextMessage(message.Text);
+                                    OnReceive?.Invoke(chats[chat.Id]);
+                                } catch (Exception e) { };
+                            }
 
-                            OnReceive?.Invoke(chats[chat.Id]);
                             return;
                         }
                 }
