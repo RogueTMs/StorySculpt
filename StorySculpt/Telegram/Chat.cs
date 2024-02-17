@@ -26,6 +26,11 @@ namespace StorySculpt.Telegram
                 );
         }
 
+        public void setTextMessage(String text)
+        {
+            _currentMessage = text;
+        }
+
         public String getCurrentMessage()
         {
             return _currentMessage;
