@@ -4,15 +4,13 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
-namespace StorySculpt.Telegram
+namespace StorySculpt.TelegramImpl
 {
 
-    internal delegate void getMessage(Chat chat);
+
 
     internal class TelegramBot
     {
-
-        public event getMessage OnReceive;
 
 
         private Dictionary<long, Chat> chats = new Dictionary<long, Chat>();
@@ -60,18 +58,29 @@ namespace StorySculpt.Telegram
 
                             var chat = message.Chat;
 
-                            if (message.Text == "/start")
-                            {
+                            if (!chats.ContainsKey(chat.Id)) { 
                                 chats[chat.Id] = new Chat(message, TelegramBot.botClient);
+
                             }
                             else
                             {
-                                try
-                                {
-                                    chats[chat.Id].setTextMessage(message.Text);
-                                    OnReceive?.Invoke(chats[chat.Id]);
-                                } catch (Exception e) { };
+                                chats[chat.Id].setTextMessage(message.Text);
                             }
+
+                            //if (message.Text == "/start")
+                            //{
+                            //    chats[chat.Id] = new Chat(message, TelegramBot.botClient);
+                            //    sendMessage?.Invoke(chats[chat.Id], "Игра началась!");
+                            //}
+                            //else
+                            //{
+                            //    try
+                            //    { 
+                            //        OnReceive?.Invoke(message);
+                            //    } catch (Exception e) {
+                            //        sendMessage?.Invoke(chats[chat.Id], "Для начала напишите '/start'");
+                            //    };
+                            //}
 
                             return;
                         }

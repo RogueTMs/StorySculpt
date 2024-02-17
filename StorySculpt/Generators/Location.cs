@@ -1,4 +1,6 @@
-﻿namespace StorySculpt.Classes
+﻿using StorySculpt.Classes;
+
+namespace StorySculpt.Generators
 {
     internal class Location
     {
@@ -6,7 +8,7 @@
 
         private List<Model> npcs = new List<Model>();
 
-        public Location(String name)
+        public Location(string name)
         {
             this.name = name;
         }

@@ -1,7 +1,7 @@
 ﻿using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 
-namespace StorySculpt.Telegram
+namespace StorySculpt.TelegramImpl
 {
     internal class ErrorHandler
     {

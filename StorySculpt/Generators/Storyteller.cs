@@ -1,15 +1,16 @@
 ﻿using System.Net;
+using StorySculpt.Classes;
 
-namespace StorySculpt.Classes
+namespace StorySculpt.Generators
 {
     internal class Storyteller
     {
         public readonly string? lore;
 
-        private static List<string> _races = new List<string>() {"Эльф", "Дворф", "Человек", "Полурослик", "Орк" };
+        private static List<string> _races = new List<string>() { "Эльф", "Дворф", "Человек", "Полурослик", "Орк" };
 
-        public async Task<Model> GenerateCharacter() 
-        {   
+        public async Task<Model> GenerateCharacter()
+        {
             Model model = new Model();
             Random rnd = new Random();
             string race = _races[rnd.Next(0, _races.Count)];

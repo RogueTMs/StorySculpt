@@ -1,15 +1,16 @@
-﻿using StorySculpt.Connection;
+﻿using StorySculpt.Classes;
+using StorySculpt.Connection;
 using System.Linq;
 using System.Net.Http.Json;
 
-namespace StorySculpt.Classes
+namespace StorySculpt.Generators
 {
     internal class Model
     {
         private List<Message> messages = new List<Message>();
 
 
-        public void AddSystemMessage(String message)
+        public void AddSystemMessage(string message)
         {
             messages.Add(new Message()
             {
@@ -30,7 +31,6 @@ namespace StorySculpt.Classes
                 ModelId = "gpt-3.5-turbo",
                 Messages = messages,
                 Stream = false,
-                Temperature = 1.2f,
             };
             using var response = await Client.httpClient.PostAsJsonAsync(Client.endpoint, requestData);
 
@@ -52,7 +52,7 @@ namespace StorySculpt.Classes
             return choice.Message;
         }
 
-        public string GetDescription() 
+        public string GetDescription()
         {
             return messages.FirstOrDefault().Content;
         }
