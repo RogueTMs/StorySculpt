@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ChatGPTApi
+namespace StorySculpt
 {
     internal class Request
     {

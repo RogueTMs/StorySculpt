@@ -21,7 +21,7 @@ namespace StorySculpt
             // токен из личного кабинета
             //
             //string apiKey = "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";
-            string apiKey = "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";
+            string apiKey = "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";
             // адрес api для взаимодействия с чат-ботом
             string endpoint = "https://api.openai.com/v1/chat/completions";
             // набор соообщений диалога с чат-ботом

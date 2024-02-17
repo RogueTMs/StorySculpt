@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ChatGPTApi.Classes
+namespace StorySculpt.Classes
 {
     internal class ResponseData
     {
