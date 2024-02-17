@@ -11,7 +11,7 @@ namespace StorySculpt.Telegram
     internal class TelegramBot
     {
 
-        public event getMessage OnRecive;
+        public event getMessage OnReceive;
 
 
         private Dictionary<long, Chat> chats = new Dictionary<long, Chat>();
@@ -61,7 +61,7 @@ namespace StorySculpt.Telegram
 
                             chats[chat.Id] = new Chat(message, TelegramBot.botClient);
 
-                            OnRecive?.Invoke(chats[chat.Id]);
+                            OnReceive?.Invoke(chats[chat.Id]);
                             return;
                         }
                 }
