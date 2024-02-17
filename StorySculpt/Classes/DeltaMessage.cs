@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace StorySculpt.Classes
+﻿namespace StorySculpt.Classes
 {
     internal class DeltaMessage : Message
     {

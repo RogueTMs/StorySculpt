@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace StorySculpt
+namespace StorySculpt.Classes
 {
     internal class Message
     {

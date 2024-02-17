@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using StorySculpt.Classes;
+using System.Text.Json.Serialization;
 
 namespace StorySculpt
 {
