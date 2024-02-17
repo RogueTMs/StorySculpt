@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace StorySculpt.Connection
 {
@@ -10,9 +6,9 @@ namespace StorySculpt.Connection
     {
         static public HttpClient httpClient = new HttpClient();
 
-        static private string apiKey = "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";
+        static private readonly string apiKey = ConfigurationManager.AppSettings["apiKey"];
 
-        static public string endpoint = "https://api.openai.com/v1/chat/completions";
+        static public readonly string endpoint = "https://api.openai.com/v1/chat/completions";
 
         static Client()
         {
