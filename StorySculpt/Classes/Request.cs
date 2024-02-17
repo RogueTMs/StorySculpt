@@ -9,6 +9,8 @@ namespace StorySculpt
         public string ModelId { get; set; } = "gpt-3.5-turbo";
         [JsonPropertyName("messages")]
         public List<Message> Messages { get; set; } = new();
+        [JsonPropertyName("temperature")]
+        public float? Temperature { get; set; } = null;
         //[JsonPropertyName("functions")]
         //public List<Function> Functions { get; set; } = new();
         [JsonPropertyName("stream")]
