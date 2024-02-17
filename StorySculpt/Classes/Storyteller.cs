@@ -1,13 +1,19 @@
-﻿namespace StorySculpt.Classes
+﻿using System.Net;
+
+namespace StorySculpt.Classes
 {
     internal class Storyteller
     {
         public readonly string? lore;
 
+        private static List<string> _races = new List<string>() {"Эльф", "Дворф", "Человек", "Полурослик", "Орк" };
+
         public async Task<Model> GenerateCharacter() 
-        {
+        {   
             Model model = new Model();
-            model.AddSystemMessage("Ты ведёшь игру D&D, в которой участвуешь в роли сценариста и должен дописывать сюжет в зависимости от действий игрока. Мир в котором происходят действия: " + lore + "Создай не игрового персонажа в этом мире, который будет потом общаться с игроком и реагировать на его действия, для этого необходимо указать расу, класс, базовые характеристики, мировоззрение, цели, характер, снаряжение, умения и владения (возможные расы: эльфы, дворфы, гномы, орки, людоящеры, полурослики, гоблины, люди, тифлинги, чейнджлинги)");
+            Random rnd = new Random();
+            string race = _races[rnd.Next(0, _races.Count)];
+            model.AddSystemMessage("Ты ведёшь игру D&D, в которой участвуешь в роли сценариста и должен дописывать сюжет в зависимости от действий игрока. Мир в котором происходят действия: " + lore + "Создай не игрового персонажа в этом мире, который будет потом общаться с игроком и реагировать на его действия. Раса персонажа: " + race + "необходимо указать класс, базовые характеристики, мировоззрение, цели, характер, снаряжение, умения и владения.");
             Message message = await model.GetMessage();
             Console.WriteLine(message.Content);
             Model character = new Model();

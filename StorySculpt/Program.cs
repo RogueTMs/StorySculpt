@@ -26,7 +26,7 @@ namespace StorySculpt
             telegramBot.Init();
 
 
-            Model model = new Model();
+            //Model model = new Model();
             Location location = new Location("Tavern");
             Storyteller st = new Storyteller();
             Model model = await st.GenerateCharacter();
