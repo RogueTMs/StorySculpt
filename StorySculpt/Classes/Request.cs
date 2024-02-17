@@ -5,7 +5,7 @@ namespace StorySculpt
     internal class Request
     {
         [JsonPropertyName("model")]
-        public string ModelId { get; set; } = "";
+        public string ModelId { get; set; } = "gpt-3.5-turbo";
         [JsonPropertyName("messages")]
         public List<Message> Messages { get; set; } = new();
         //[JsonPropertyName("functions")]

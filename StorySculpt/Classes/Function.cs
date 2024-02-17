@@ -9,6 +9,6 @@ namespace StorySculpt
         [JsonPropertyName("description")]
         public string Description { get; set; } = string.Empty;
         [JsonPropertyName("parameters")]
-        public object Parameters { get; set; }
+        public object? Parameters { get; set; }
     }
 }
