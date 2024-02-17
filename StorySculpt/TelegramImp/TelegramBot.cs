@@ -60,7 +60,6 @@ namespace StorySculpt.TelegramImpl
 
                             if (!chats.ContainsKey(chat.Id)) { 
                                 chats[chat.Id] = new Chat(message, TelegramBot.botClient);
-
                             }
                             else
                             {

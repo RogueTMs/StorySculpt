@@ -14,7 +14,7 @@ namespace StorySculpt
     internal class Session
     {
 
-        static private Location currLocation = new Location("Tavern");
+        private Location currLocation = new Location("Tavern");
 
         private Chat chat;
 
